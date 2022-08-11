@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<div class="container">
+<table id="product" class="table table-striped">
+    <thead>
+    <tr class="">
+        <th>Id</th>
+        <th>Facility</th>
+        <th>Customer</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Deposit</th>
+        <th>Total</th>
+        <th>Accompanying Services</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Tâm</td>
+        <td>A</td>
+        <td>01-08-2022</td>
+        <td>02-08-2022</td>
+        <td>1000</td>
+        <td>100000</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalContractDetail">+
+            </button>
+            <a class="btn btn-primary">
+                danh sach di kem
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Attach Facility Name</th>
+                        <th>Cost</th>
+                        <th>Attach Unit</th>
+                        <th>Attach Status</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Contract Detail-->
+<div class="modal fade" id="exampleModalContractDetail" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center>
+                    <h5>Contract</h5>
+                </center>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="starDate">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">End Date </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="endDate">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Deposit</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="deposit">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Customer Name</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" id="customerId">
+                            <option value="1">A</option>
+                            <option value="2">B</option>
+                            <option value="3">C</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Service</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" id="facilityId">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Dich vu dinh kem</label>
+                    <div class="col-sm-10">
+                        <button class="btn btn-primary" onclick="btnAttachFacility()">+</button>
+                        <table class="table" id="attachFacility">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Attach Facility Name</th>
+                                <th>Cost</th>
+                                <th>Attach Unit</th>
+                                <th>Attach Status</th>
+                                <th>Quantity</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr >
+                                <td ></td>
+                                <td hidden>
+                                    <input type="text"  name="attachId">
+                                </td>
+                                <td ></td>
+                                <td ></td>
+                                <td hidden>
+                                    <input type="text" name="facilityCost" >
+                                </td>
+                                <td ></td>
+                                <td ></td>
+                                <td>
+                                    <input type="number" class="form-control quantity" name="quantity">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addContractDetail()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="text" hidden >
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+
+<script>
+    document.getElementById("attachFacility").style.display = "none";
+    function btnAttachFacility() {
+        document.getElementById("attachFacility").style.display = "block";
+    }
+</script>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>

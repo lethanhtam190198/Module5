@@ -9,7 +9,6 @@
 <body>
 
 <div class="body_center_2 container" >
-
     <table id="product" class="table table-striped">
         <thead>
         <tr class="">
@@ -29,6 +28,23 @@
         <tbody>
         <tr>
             <td>1</td>
+            <td>Vip</td>
+            <td>Tâm</td>
+            <td>19-01-1998</td>
+            <td>Nam</td>
+            <td>222222</td>
+            <td>090111111</td>
+            <td>tam@gmail.com</td>
+            <td>Quảng Nôm</td>
+            <td><a href="http://localhost:63342/home/customer/edit.html?_ijt=2m15v1tm95hi319e94frhfvon5&_ij_reload=RELOAD_ON_SAVE" class="btn btn-danger" >Edit</a></td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        onclick="infoDelete(this.value)">Delete
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
             <td>Vip</td>
             <td>Tâm</td>
             <td>19-01-1998</td>
@@ -78,6 +94,20 @@
             document.getElementById("nameDelete").innerText = arr[1];
         }
     </script>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
     <a  class="navbar-brand btn btn-danger" href="http://localhost:63342/home/customer/create.html?_ijt=2m15v1tm95hi319e94frhfvon5&_ij_reload=RELOAD_ON_SAVE">
         Create Customer
