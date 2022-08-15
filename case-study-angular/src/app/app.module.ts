@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CustomerComponent } from './customer/list/customer.component';
 import { FacilityComponent } from './facility/list/facility.component';
-import { CreateComponent } from './contract/create/create.component';
 import { ListComponent } from './contract/list/list.component';
 import { EditComponent } from './facility/edit/edit.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [{
     FooterComponent,
     CustomerComponent,
     FacilityComponent,
-    CreateComponent,
     ListComponent,
     EditComponent
   ],
