@@ -1,0 +1,23 @@
+.pic {
+  position: relative;
+  text-align: center;
+  color: white
+}
+
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding: 269px 0 159px 0;
+  font-size: 60px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
