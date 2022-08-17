@@ -14,7 +14,7 @@ export class FacilityComponent implements OnInit {
       id: 1,
       name: 'PHÒNG STUDIO SUITE HƯỚNG BIỂN',
       area: 100,
-      rentalCosts: 100000,
+      rentalCosts: 10000000,
       maxPeople: 4,
       rentalType: 'tháng',
       url: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg'
@@ -45,15 +45,6 @@ export class FacilityComponent implements OnInit {
       maxPeople: 4,
       rentalType: 'tháng',
       url: 'https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-F-370x239.jpg'
-    });
-    this.facilityList.push({
-      id: 5,
-      name: 'PHÒNG SUPERIOR HƯỚNG VƯỜN',
-      area: 100,
-      rentalCosts: 100000,
-      maxPeople: 4,
-      rentalType: 'tháng',
-      url: 'https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg'
     });
   }
 
