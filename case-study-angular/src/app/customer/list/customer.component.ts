@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../model/customer';
+import {CustomerService} from '../../service/customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -9,32 +10,16 @@ import {Customer} from '../../model/customer';
 export class CustomerComponent implements OnInit {
   customerList: Customer[] = [];
 
-  constructor() {
-    this.customerList.push({
-      id: 1,
-      type: 'Vip',
-      name: 'Tâm',
-      birthDay: '19-01-1998',
-      gender: 'Nam',
-      idCard: '123123123',
-      phoneNumber: '12312312',
-      email: 'tam@gmail.com',
-      address: 'QN'
-    });
-    this.customerList.push({
-      id: 2,
-      type: 'ProVip',
-      name: 'Hùng',
-      birthDay: '12-01-2000',
-      gender: 'Nam',
-      idCard: '1412314',
-      phoneNumber: '09099909',
-      email: 'hung@gmail.com',
-      address: 'DN'
-    });
+  constructor(private customerService: CustomerService) {
+
   }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll() {
+    this.customerList = this.customerService.getAll();
   }
 
 }
