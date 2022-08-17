@@ -1,3 +1,8 @@
+
+<div style="text-align: center">
+  <h1>Contract List</h1>
+</div>
+
 <div class="container">
   <table id="product" class="table table-striped">
     <thead>
@@ -26,30 +31,9 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalContractDetail">+
         </button>
-        <a class="btn btn-primary" style="margin-left: 30px" data-bs-toggle="modal"
+        <a class="btn btn-primary" style="margin-left: 10px" data-bs-toggle="modal"
            data-bs-target="#exampleModal">
-          danh sach di kem
-        </a>
-      </td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td>2</td>
-      <td>ABc</td>
-      <td>A</td>
-      <td>22-05-2022</td>
-      <td>01-06-2022</td>
-      <td>0</td>
-      <td>50000</td>
-      <td>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModalContractDetail">+
-        </button>
-        <a class="btn btn-primary" style="margin-left: 30px" data-bs-toggle="modal"
-           data-bs-target="#exampleModal">
-          danh sach di kem
+          List Accompanied Service
         </a>
       </td>
     </tr>
@@ -79,10 +63,10 @@
           <tbody>
           <tr>
             <td>1</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Xe</td>
+            <td>10000</td>
             <td>4</td>
-            <td>5</td>
+            <td>Ok</td>
           </tr>
           </tbody>
         </table>
@@ -193,3 +177,10 @@
     document.getElementById("attachFacility").style.display = "block";
   }
 </script>
+
+<div style="text-align: center;margin-bottom: 20px">
+  <a class="btn btn-danger"
+     [routerLink]="['/contract/create']">
+    Create Contract
+  </a>
+</div>

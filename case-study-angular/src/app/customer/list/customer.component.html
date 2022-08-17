@@ -30,13 +30,10 @@
       <td>{{item.phoneNumber}}</td>
       <td>{{item.email}}</td>
       <td>{{item.address}}</td>
-      <td><a
-        href="http://localhost:63342/home/customer/edit.html?_ijt=2m15v1tm95hi319e94frhfvon5&_ij_reload=RELOAD_ON_SAVE"
-        class="btn btn-danger">Edit</a></td>
       <td>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                onclick="infoDelete(this.value)">Delete
-        </button>
+        <button type="button" [routerLink]="['/customer/edit']" class="btn btn-danger">Edit</button></td>
+      <td>
+        <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
       </td>
     </tr>
 
