@@ -1,0 +1,84 @@
+<div class="text-center">
+  <h4 class="text-center"> Login</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+    <div class="example-container">
+      <div>
+        <label class="form-label">User</label>
+        <div>
+          <input placeholder="Email" formControlName="email">
+          <p *ngIf="loginForm.controls.email.hasError('required')&& loginForm.controls.email.touched">
+            Plz Not Required</p>
+          <p *ngIf="loginForm.controls.email.hasError('pattern')">Wrong Format Email</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Password</label>
+        <div>
+          <input type="text" placeholder="Password" name="password" formControlName="password">
+          <p *ngIf="loginForm.controls.password.hasError('required')&& loginForm.controls.password.touched ">No
+            Required</p>
+          <p *ngIf="loginForm.controls.password.hasError('minlength')">More than 6 characters</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Confirm</label>
+        <div>
+          <input type="text" placeholder="confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+          <p *ngIf="loginForm.hasError('confirmpass')">Pass Error</p>
+          <p *ngIf="loginForm.controls.confirmPassword.hasError('minlength')">More than 6 characters</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Country</label>
+        <div>
+          <select class="form-select" formControlName="country">
+            <option value="QN">Quang Nam</option>
+            <option value="DN">DN</option>
+            <option value="HN">Ha Noi</option>
+          </select>
+          <p *ngIf="loginForm.controls.country.hasError('required') && loginForm.controls.country.touched">Country not
+            required</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Age</label>
+        <div>
+          <input type="text" placeholder="Age" formControlName="age">
+          <p *ngIf="loginForm.controls.age.hasError('required')&& loginForm.controls.country.touched ">ko bo trong</p>
+          <p *ngIf="loginForm.controls.age.hasError('min')">lon hon 18</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Gender</label>
+        <div>
+          <select class="form-select" formControlName="gender">
+            <option value="Nam">Nam</option>
+            <option value="Nu">Nu</option>
+            <option value="Other">Other</option>
+          </select>
+          <p *ngIf="loginForm.controls.gender.hasError('required') && loginForm.controls.gender.touched">Gender not
+            required</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Phone</label>
+        <div>
+          <input type="text" placeholder="Age" formControlName="phone">
+          <p *ngIf="loginForm.controls.phone.hasError('required') && loginForm.controls.phone.touched">Not Required</p>
+          <p *ngIf="loginForm.controls.phone.hasError('pattern')">Wrong Format</p>
+        </div>
+      </div>
+
+      <div class="mt-top">
+        <button [disabled]="!loginForm.valid" style="color: #1976d2" type="button">Sign In</button>
+      </div>
+    </div>
+  </form>
+</div>
+

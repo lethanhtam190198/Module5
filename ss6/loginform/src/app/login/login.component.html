@@ -1,0 +1,31 @@
+<div class="text-center">
+  <h4 class="text-center"> Login</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+    <div class="example-container">
+      <div>
+        <label class="form-label">User</label>
+        <div>
+          <input placeholder="Email" formControlName="email">
+          <p *ngIf="loginForm.controls.email.hasError('required')&& loginForm.controls.email.touched">
+            Plz Not Required</p>
+          <p *ngIf="loginForm.controls.email.hasError('pattern')">Wrong Format Email</p>
+        </div>
+      </div>
+
+      <div class="mt-top-2">
+        <label class="form-label">Password</label>
+        <div>
+          <input type="text" placeholder="Password" name="password" formControlName="password">
+          <p *ngIf="loginForm.controls.password.hasError('required')&& loginForm.controls.password.touched ">No
+            Required</p>
+          <p *ngIf="loginForm.controls.password.hasError('minlength')">More than 6 characters</p>
+        </div>
+      </div>
+
+      <div class="mt-top">
+        <button [disabled]="!loginForm.valid" style="color: #1976d2" type="button">Sign In</button>
+      </div>
+    </div>
+  </form>
+</div>
+

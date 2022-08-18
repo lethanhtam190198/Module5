@@ -7,42 +7,52 @@
     <div class="body_center_2 container">
       <form [formGroup]="customerList" (ngSubmit)="submit()">
         <div class="mb-3">
-          <label class="form-label"> No</label>
-          <input class="form-control" type="text">
+          <label class="form-label"> Id</label>
+          <input class="form-control" type="text" formControlName="id">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Type</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="type">
         </div>
 
         <div class="mb-3">
           <label class="form-label">Name</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="name">
         </div>
 
         <div class="mb-3">
           <label class="form-label">Birth Day</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="date" formControlName="birthDay">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <input class="form-control" type="text" formControlName="gender">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> Id Card</label>
+          <input class="form-control" type="text" formControlName="idCard">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Phone</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="phoneNumber">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Email</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="email">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Address</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="address">
         </div>
         <div style="margin-bottom: 10px">
-          <a type="submit" class="btn btn-outline-primary">Create</a>
-          <a style="margin-left: 10px" href="http://localhost:4200/customer/list" type="submit"
+          <button type="submit" class="btn btn-outline-primary">Create</button>
+          <a style="margin-left: 10px" [routerLink]="['/customer/list']" type="submit"
              class="btn btn-outline-danger">Close</a>
         </div>
       </form>
