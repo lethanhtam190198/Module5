@@ -22,10 +22,22 @@ export class CustomerService {
   getAll() {
     return this.customerList;
   }
-  saveCustomer(customer) {
+  saveCustomer(customer: Customer) {
     this.customerList.push(customer);
   }
   findById(id: number) {
     return this.customerList.find(customer => customer.id === id);
+  }
+  updateCustomer(id: number, customer: Customer) {
+    for (let i = 0; i < this.customerList.length; i++) {
+      if (this.customerList[i].id === id) {
+        this.customerList[i] = customer;
+      }
+    }
+  }
+  deleteCustomer(id: number) {
+    this.customerList = this.customerList.filter(customer => {
+      return customer.id !== id;
+    });
   }
 }

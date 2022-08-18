@@ -52,11 +52,11 @@
         <div class="card-body">
           <h6 class="card-title">{{item.name}}</h6>
           <p class="card-text">
-            Diện tích: {{item.area}} m2
+            Diện tích: {{item.area}} m²
           </p>
           <p class="card-text">
             Giá:
-            {{item.rentalCosts | currency:'VND':'symbol-narrow':'3.2-2'|slice : 0  }}
+            {{item.rentalCosts | currency:'VND':true}}
           </p>
         </div>
         <div style="margin-bottom: 15px">

@@ -20,8 +20,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of customerList">
-      <td>{{item.id}}</td>
+    <tr *ngFor="let item of customerList;index as i">
+      <td>{{i+1}}</td>
       <td>{{item.type}}</td>
       <td>{{item.name}}</td>
       <td>{{item.birthDay}}</td>
@@ -31,45 +31,72 @@
       <td>{{item.email}}</td>
       <td>{{item.address}}</td>
       <td>
-        <button type="button" [routerLink]="['/customer/edit']" class="btn btn-danger">Edit</button></td>
+        <button type="button" [routerLink]="['/customer/edit' , item.id] " class="btn btn-danger">Edit</button></td>
       <td>
-        <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
+        <button type="button" class="btn btn-outline-success"
+                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="openDetele(item.id,item.name)">
+          Delete
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Do You Want Delete Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body" style="color: red">
+                Bạn có muốn xóa : {{name}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Không
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(id)" >Có</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </td>
     </tr>
 
     </tbody>
   </table>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-<!--      <form>-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Xóa Employee</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- name trung voi serverlet xoa-->
-            <input type="text" hidden name="id" id="idDelete">
-            <span>Bạn có muốn xóa: </span>
-            <span id="nameDelete"></span>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không Xóa</button>
-            <button type="submit" class="btn btn-primary">Xóa</button>
-          </div>
-        </div>
-<!--      </form>-->
-    </div>
-  </div>
+<!--  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--&lt;!&ndash;      <form>&ndash;&gt;-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header">-->
+<!--            <h5 class="modal-title" id="exampleModalLabel">Xóa Customer</h5>-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            &lt;!&ndash; name trung voi serverlet xoa&ndash;&gt;-->
+<!--            <input type="text" hidden name="id" id="idDelete">-->
+<!--            <span>Bạn có muốn xóa: </span>-->
+<!--            <span id="nameDelete"></span>-->
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không Xóa</button>-->
+<!--            <button type="submit" class="btn btn-primary">Xóa</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;      </form>&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <script>
-    function infoDelete(name) {
-      let arr = name.split(",")
-      document.getElementById("idDelete").value = arr[0];
-      document.getElementById("nameDelete").innerText = arr[1];
-    }
-  </script>
+<!--  <script>-->
+<!--    function infoDelete(name) {-->
+<!--      let arr = name.split(",")-->
+<!--      document.getElementById("idDelete").value = arr[0];-->
+<!--      document.getElementById("nameDelete").innerText = arr[1];-->
+<!--    }-->
+<!--  </script>-->
+
+
   <div style="text-align: center;margin-bottom: 20px">
     <a class="btn btn-danger"
        href="http://localhost:4200/customer/create">

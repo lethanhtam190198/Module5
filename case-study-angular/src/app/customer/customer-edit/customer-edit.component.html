@@ -6,46 +6,46 @@
   <div class="col-3"></div>
   <div class="col-6">
     <div class="body_center_2 container">
-<!--      <form >-->
+      <form [formGroup]="customerEdit" (ngSubmit)="submit()" novalidate>
         <div class="mb-3">
           <label class="form-label"> Id</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="id">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Type</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="type">
         </div>
 
         <div class="mb-3">
           <label class="form-label">Name</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="name">
         </div>
 
         <div class="mb-3">
           <label class="form-label">Birth Day</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="birthDay">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Phone</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="phoneNumber">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Email</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="email">
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Address</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="address">
         </div>
         <div style="padding-bottom: 15px">
           <input type="submit" class="btn btn-outline-primary" value="Edit">
           <button style="margin-left: 10px" [routerLink]="['/customer/list']" type="button" class="btn btn-outline-danger" >Close</button>
         </div>
-<!--      </form>-->
+      </form>
     </div>
 
   </div>

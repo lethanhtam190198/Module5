@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 
 @Component({
@@ -9,20 +9,23 @@ import {CustomerService} from '../../service/customer.service';
 })
 export class CustomerCreateComponent implements OnInit {
   customerList: FormGroup = new FormGroup({
-    id: new FormControl(),
-    type: new FormControl(),
-    name: new FormControl(),
-    birthDay: new FormControl(),
-    gender: new FormControl(),
-    idCard: new FormControl(),
-    phoneNumber: new FormControl(),
-    email: new FormControl(),
-    address: new FormControl(),
+    id: new FormControl('', Validators.pattern(/^([A-Z][^A-Z0-9\s]+)(\s[A-Z][^A-Z0-9\s]+)*$/)),
+    type: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    birthDay: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{6,9}$/)]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^[\+84][0-9]{9,10}$/)]),
+    email: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
   });
-  constructor(private customerService: CustomerService) { }
+
+  constructor(private customerService: CustomerService) {
+  }
 
   ngOnInit(): void {
   }
+
   submit() {
     const customer = this.customerList.value;
     this.customerService.saveCustomer(customer);
