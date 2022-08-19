@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-create',
@@ -9,7 +10,7 @@ import {CustomerService} from '../../service/customer.service';
 })
 export class CustomerCreateComponent implements OnInit {
   customerList: FormGroup = new FormGroup({
-    id: new FormControl('', Validators.pattern(/^([A-Z][^A-Z0-9\s]+)(\s[A-Z][^A-Z0-9\s]+)*$/)),
+    id: new FormControl('', Validators.required),
     type: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     birthDay: new FormControl('', [Validators.required]),
@@ -20,7 +21,8 @@ export class CustomerCreateComponent implements OnInit {
     address: new FormControl('', [Validators.required]),
   });
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class CustomerCreateComponent implements OnInit {
     const customer = this.customerList.value;
     this.customerService.saveCustomer(customer);
     this.customerList.reset();
+    this.router.navigate(['customer/list']);
   }
 
 }

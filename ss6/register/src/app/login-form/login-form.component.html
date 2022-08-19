@@ -6,9 +6,8 @@
         <label class="form-label">User</label>
         <div>
           <input placeholder="Email" formControlName="email">
-          <p *ngIf="loginForm.controls.email.hasError('required')&& loginForm.controls.email.touched">
-            Plz Not Required</p>
-          <p *ngIf="loginForm.controls.email.hasError('pattern')">Wrong Format Email</p>
+          <p *ngIf="loginForm.controls.email.hasError('required')">Plz Not Required</p>
+          <p *ngIf="loginForm.controls.email.hasError('email')">Wrong Format Email</p>
         </div>
       </div>
 
