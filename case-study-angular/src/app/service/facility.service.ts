@@ -15,7 +15,7 @@ export class FacilityService {
       id: 1, name: 'Day'
     },
     url: 'https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Garden-Deluxe-twin-bed-F-370x239.jpg',
-    roomStandard: 'Tháng',
+    roomStandard: 'Abc',
     poolArea: 100,
     numberOfFloors: 3,
     otherAmenities: 'Aaaaa',

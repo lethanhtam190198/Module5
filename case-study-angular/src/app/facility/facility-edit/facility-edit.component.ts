@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Facility} from '../../model/facility';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CustomerService} from '../../service/customer.service';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FacilityTypeService} from '../../service/facility-type.service';
 import {FacilityType} from '../../model/facility-type';
+import {FacilityService} from '../../service/facility.service';
+import {RentalType} from '../../model/rental-type';
+import {RentalTypeService} from '../../service/rental-type.service';
 
 @Component({
   selector: 'app-facility-edit',
@@ -15,25 +16,41 @@ export class FacilityEditComponent implements OnInit {
   facilityEdit: FormGroup;
   id: number;
   facilityTypeList: FacilityType[] = [];
+  rentalType: RentalType[] = [];
 
-  constructor(private facilityService: CustomerService,
+  constructor(private facilityService: FacilityService,
               private activeRouter: ActivatedRoute,
               private router: Router,
-              private facilityType: FacilityTypeService) {
+              private facilityTypeService: FacilityTypeService,
+              private rentalTypeService: RentalTypeService) {
     this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const customer = this.getFacility(this.id);
-      this.facilityEdit = new FormGroup({});
+      const facility = this.getFacility(this.id);
+      this.facilityEdit = new FormGroup({
+        id: new FormControl(facility.id),
+        name: new FormControl(facility.name),
+        type: new FormControl(facility.facilityType),
+        area: new FormControl(facility.area),
+        rentalCosts: new FormControl(facility.rentalCosts),
+        maxPeople: new FormControl(facility.maxPeople),
+        rentalType: new FormControl(facility.rentalType),
+        url: new FormControl(facility.url),
+        roomStandard: new FormControl(facility.roomStandard),
+        poolArea: new FormControl(facility.poolArea),
+        numberOfFloors: new FormControl(facility.numberOfFloors),
+        otherAmenities: new FormControl(facility.otherAmenities)
+      });
     });
   }
 
   ngOnInit(): void {
-    this.facilityTypeList = this.facilityService.getAll();
+    this.facilityTypeList = this.facilityTypeService.getAll();
+    this.rentalType = this.rentalTypeService.getAll();
   }
 
   submit() {
     const facility = this.facilityEdit.value;
-    this.facilityService.updateCustomer(this.id, facility);
+    this.facilityService.updateFacility(this.id, facility);
     this.facilityEdit.reset();
     this.router.navigate(['facility/list']);
   }
@@ -41,5 +58,11 @@ export class FacilityEditComponent implements OnInit {
 
   private getFacility(id: number) {
     return this.facilityService.findById(id);
+  }
+
+  updateFacility(id: number) {
+    const facility = this.facilityEdit.value;
+    this.facilityService.updateFacility(id, facility);
+    alert('Update Success');
   }
 }

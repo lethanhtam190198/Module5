@@ -55,19 +55,19 @@
             Diện tích: {{item.area}} m²
           </p>
           <p class="card-text">
-            Giá:
-            {{item.rentalCosts | currency:'VND':true}}
+            Giá:{{item.rentalCosts | currency:'VND':true}}
           </p>
         </div>
         <div style="margin-bottom: 15px">
-          <a [routerLink]="['/facility/edit']" style="border-radius: 10px ;margin-left: 15px"
+          <a [routerLink]="['/facility/edit', item.id]" style="border-radius: 10px ;margin-left: 15px"
              class="btn btn-warning">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
                  viewBox="0 0 16 16">
               <path
                 d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
             </svg>&ensp;Edit</a>
-          <a [routerLink]="['/facility/detail']" style="border-radius: 10px ;margin-left:25px" class="btn btn-warning">
+          <button style="border-radius: 10px ;margin-left: 25px" type="button" class="btn btn-warning"
+                  data-bs-toggle="modal" data-bs-target="#exampleModalDetail" (click)="openDetail(item)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
                  viewBox="0 0 16 16">
               <path
@@ -75,7 +75,7 @@
               <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
             </svg>
             Detail
-          </a>
+          </button>
           <button style="border-radius: 10px ;margin-left: 25px" type="button" class="btn btn-danger"
                   data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openDetele(item.id,item.name)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
@@ -90,6 +90,7 @@
       </div>
     </div>
 
+    <!--    modal delete-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
       <div class="modal-dialog">
@@ -106,11 +107,41 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Không
             </button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(id)" >Có</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete(id)">Có</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!--    modal detail-->
+    <div class="modal fade" id="exampleModalDetail" tabindex="-1" aria-labelledby="exampleModalLabel1"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Detail </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Name : {{name}}<br>
+            Facility: {{facilityType}}<br>
+            Area:{{area}}<br>
+            Area:{{rentalCosts}}<br>
+            Area:{{maxPeople}}<br>
+            Area:{{rentalType}}<br>
+            Area:{{poolArea}}<br>
+            Area:{{otherAmenities}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 </div>

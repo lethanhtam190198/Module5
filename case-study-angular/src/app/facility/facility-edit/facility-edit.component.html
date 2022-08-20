@@ -1,14 +1,12 @@
 <div style="text-align: center">
   <h1>Facility Edit</h1>
 </div>
-
-<div style="text-align: center"><h1>Facility Create</h1></div>
 <div class="container">
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
       <div class="body_center_2">
-        <form [formGroup]="facilityEdit" (ngSubmit)="submit()">
+        <form [formGroup]="facilityEdit" (ngSubmit)="submit()" novalidate>
 
           <div class="mb-3">
             <label class="form-label" > Id</label>
@@ -47,7 +45,9 @@
 
           <div class="mb-3">
             <label class="form-label">Rental Type</label>
-            <select class="form-select" name="" id="rentType" formControlName="rentalType">
+            <select class="form-select" name="" id="rentalType" formControlName="rentalType">
+              <option *ngFor="let rentalType of rentalType"
+                      [ngValue]="rentalType">{{rentalType.name}}</option>
 
             </select>
           </div>
@@ -78,7 +78,7 @@
           </div>
 
           <div style="margin-bottom: 15px">
-            <input type="submit" class="btn btn-outline-primary" value="Create">
+            <input type="submit" class="btn btn-outline-primary" value="Edit">
             <a style="margin-left: 10px" [routerLink]="['/facility/list']" type="button"
                class="btn btn-outline-danger">Close</a>
           </div>
