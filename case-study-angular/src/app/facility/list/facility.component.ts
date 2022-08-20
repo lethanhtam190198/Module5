@@ -9,6 +9,8 @@ import {FacilityService} from '../../service/facility.service';
 })
 export class FacilityComponent implements OnInit {
   facilityList: Facility[] = [];
+  id: number;
+  name: string;
 
   constructor(private facilityService: FacilityService) {
   }
@@ -21,5 +23,35 @@ export class FacilityComponent implements OnInit {
     this.facilityList = this.facilityService.getAll();
   }
 
+  saveFacility(facility: Facility) {
+    this.facilityList.push(facility);
+  }
+
+  findById(id: number) {
+    return this.facilityList.find(facility => facility.id === id);
+  }
+
+  updateFacility(id: number, facility: Facility) {
+    for (let i = 0; i < this.facilityList.length; i++) {
+      if (this.facilityList[i].id === id) {
+        this.facilityList[i] = facility;
+      }
+    }
+  }
+
+  deleteFacility(id: number) {
+    this.facilityList = this.facilityList.filter(facility => {
+      return facility.id !== id;
+    });
+  }
+  openDetele(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  delete(id: number) {
+    this.facilityService.deleteFacility(id);
+    this.facilityList = this.facilityService.getAll();
+  }
 
 }

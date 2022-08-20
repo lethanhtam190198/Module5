@@ -7,10 +7,10 @@ import {Customer} from '../model/customer';
 export class CustomerService {
   customerList: Customer[] = [{
     id: 1,
-    type: 'Vip',
+    type: {id: 1, name: 'Silver'},
     name: 'Tam',
     birthDay: '12-12-2111',
-    gender: 'Nam',
+    gender: 'Male',
     idCard: '12121212',
     phoneNumber: '12312312',
     email: 'tam@gmail.com',
@@ -19,15 +19,19 @@ export class CustomerService {
 
   constructor() {
   }
+
   getAll() {
     return this.customerList;
   }
+
   saveCustomer(customer: Customer) {
     this.customerList.push(customer);
   }
+
   findById(id: number) {
     return this.customerList.find(customer => customer.id === id);
   }
+
   updateCustomer(id: number, customer: Customer) {
     for (let i = 0; i < this.customerList.length; i++) {
       if (this.customerList[i].id === id) {
@@ -35,6 +39,7 @@ export class CustomerService {
       }
     }
   }
+
   deleteCustomer(id: number) {
     this.customerList = this.customerList.filter(customer => {
       return customer.id !== id;

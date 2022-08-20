@@ -22,7 +22,7 @@
     <tbody>
     <tr *ngFor="let item of customerList;index as i">
       <td>{{i+1}}</td>
-      <td>{{item.type}}</td>
+      <td>{{item.type.name}}</td>
       <td>{{item.name}}</td>
       <td>{{item.birthDay}}</td>
       <td>{{item.gender}}</td>
@@ -99,7 +99,7 @@
 
   <div style="text-align: center;margin-bottom: 20px">
     <a class="btn btn-danger"
-       href="http://localhost:4200/customer/create">
+       [routerLink]="['/customer/create']">
       Create Customer
     </a>
   </div>

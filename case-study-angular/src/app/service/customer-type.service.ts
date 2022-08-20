@@ -25,4 +25,8 @@ export class CustomerTypeService {
 
   constructor() {
   }
+
+  getAll() {
+    return this.customerTypeList;
+  }
 }

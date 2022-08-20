@@ -11,8 +11,18 @@ export class FacilityService {
     area: 50,
     rentalCosts: 10000000,
     maxPeople: 5,
-    rentalType: 'Villa',
-    url: 'https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Garden-Deluxe-twin-bed-F-370x239.jpg'
+    rentalType: {
+      id: 1, name: 'Day'
+    },
+    url: 'https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Garden-Deluxe-twin-bed-F-370x239.jpg',
+    roomStandard: 'Tháng',
+    poolArea: 100,
+    numberOfFloors: 3,
+    otherAmenities: 'Aaaaa',
+    facilityType: {
+      id: 1,
+      name: 'Villa'
+    }
   }];
 
   constructor() {
@@ -21,12 +31,15 @@ export class FacilityService {
   getAll() {
     return this.facilityList;
   }
+
   saveFacility(facility) {
     this.facilityList.push(facility);
   }
+
   findById(id: number) {
     return this.facilityList.find(facility => facility.id === id);
   }
+
   updateFacility(id: number, facility: Facility) {
     for (let i = 0; i < this.facilityList.length; i++) {
       if (this.facilityList[i].id === id) {
