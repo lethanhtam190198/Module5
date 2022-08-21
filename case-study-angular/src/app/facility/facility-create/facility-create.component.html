@@ -18,27 +18,32 @@
               <option *ngFor="let facilityType of facilityTypeList"
                       [value]="facilityType.name">{{facilityType.name}}</option>
             </select>
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Facility Name</label>
             <input class="form-control" type="text" formControlName="name">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
 
           <div class="mb-3">
             <label class="form-label"> Area</label>
             <input class="form-control" type="number" formControlName="area">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Max People</label>
             <input class="form-control" type="number" formControlName="maxPeople">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Rental Cost</label>
             <input class="form-control" type="number" formControlName="rentalCosts">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
 
@@ -49,31 +54,37 @@
               <option *ngFor="let rentalType of rentalTypeList"
                       [value]="rentalType">{{rentalType.name}}</option>
             </select>
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3" *ngIf="temp =='Villa'|| temp =='House'">
             <label class="form-label"> Standard Room</label>
             <input class="form-control" type="text" id="roomStandard" formControlName="roomStandard">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3" *ngIf="temp =='Villa'|| temp =='House'">
             <label class="form-label"> Pool Area</label>
             <input class="form-control" type="number" id="poolArea" formControlName="poolArea">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3" *ngIf="temp=='Villa'|| temp =='House'">
             <label class="form-label"> Number Of Floor</label>
             <input class="form-control" type="number" id="numberOfFloors" formControlName="numberOfFloors">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3" *ngIf="temp =='Villa'|| temp =='House'">
             <label class="form-label"> Other Amenities</label>
             <input class="form-control" type="text" id="otherAmenities" formControlName="otherAmenities">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Url</label>
             <input class="form-control" type="text" id="url" formControlName="url">
+            <p *ngIf="facilityList.controls.id.hasError('required') && facilityList.controls.id.touched"> Not Required</p>
           </div>
 
           <div style="margin-bottom: 15px">

@@ -20,12 +20,12 @@ export class FacilityCreateComponent implements OnInit {
     rentalCosts: new FormControl('', Validators.required),
     maxPeople: new FormControl('', [Validators.required]),
     rentalType: new FormControl('', [Validators.required]),
-    url: new FormControl(),
-    roomStandard: new FormControl(),
-    poolArea: new FormControl(),
-    numberOfFloors: new FormControl(),
-    otherAmenities: new FormControl(),
-    facilityType: new FormControl()
+    url: new FormControl('', [Validators.required]),
+    roomStandard: new FormControl('', [Validators.required]),
+    poolArea: new FormControl('', [Validators.required]),
+    numberOfFloors: new FormControl('', [Validators.required]),
+    otherAmenities: new FormControl('', [Validators.required]),
+    facilityType: new FormControl('', [Validators.required])
   });
   rentalTypeList: RentalType[] = [];
   facilityTypeList: FacilityType[] = [];

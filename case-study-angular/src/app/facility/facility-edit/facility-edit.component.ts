@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FacilityTypeService} from '../../service/facility-type.service';
 import {FacilityType} from '../../model/facility-type';
@@ -27,18 +27,18 @@ export class FacilityEditComponent implements OnInit {
       this.id = +paramMap.get('id');
       const facility = this.getFacility(this.id);
       this.facilityEdit = new FormGroup({
-        id: new FormControl(facility.id),
-        name: new FormControl(facility.name),
-        type: new FormControl(facility.facilityType),
-        area: new FormControl(facility.area),
-        rentalCosts: new FormControl(facility.rentalCosts),
-        maxPeople: new FormControl(facility.maxPeople),
-        rentalType: new FormControl(facility.rentalType),
-        url: new FormControl(facility.url),
-        roomStandard: new FormControl(facility.roomStandard),
-        poolArea: new FormControl(facility.poolArea),
-        numberOfFloors: new FormControl(facility.numberOfFloors),
-        otherAmenities: new FormControl(facility.otherAmenities)
+        id: new FormControl(facility.id, [Validators.required]),
+        name: new FormControl(facility.name, [Validators.required, Validators.pattern(/^([A-Z][^A-Z0-9\s]+)(\s[A-Z][^A-Z0-9\s]+)*$/)]),
+        type: new FormControl(facility.facilityType, [Validators.required]),
+        area: new FormControl(facility.area, [Validators.required]),
+        rentalCosts: new FormControl(facility.rentalCosts, [Validators.required]),
+        maxPeople: new FormControl(facility.maxPeople, [Validators.required]),
+        rentalType: new FormControl(facility.rentalType, [Validators.required]),
+        url: new FormControl(facility.url, [Validators.required]),
+        roomStandard: new FormControl(facility.roomStandard, [Validators.required]),
+        poolArea: new FormControl(facility.poolArea, [Validators.required]),
+        numberOfFloors: new FormControl(facility.numberOfFloors, [Validators.required]),
+        otherAmenities: new FormControl(facility.otherAmenities, [Validators.required])
       });
     });
   }
