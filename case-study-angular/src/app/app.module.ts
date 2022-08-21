@@ -17,9 +17,6 @@ import {ContractListComponent} from './contract/contract-list/contract-list.comp
 import {ContractCreateComponent} from './contract/contract-create/contract-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

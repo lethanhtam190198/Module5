@@ -6,45 +6,51 @@
     <div class="col-3"></div>
     <div class="col-6">
       <div class="body_center_2 container">
-        <form method="post">
+        <form [formGroup]="contractList" (ngSubmit)="submit()">
           <div class="mb-3">
             <label class="form-label"> No</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="number">
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Facility</label>
-            <input class="form-control" type="text">
+            <select id="facility" formControlName="facility" name="type"  class="form-control">
+              <option value="" disabled selected="selected">Please choose </option>
+              <option *ngFor="let facility of facilityList"
+                      [ngValue]="facility.name">{{facility.name}}</option>
+            </select>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Customer</label>
-            <input class="form-control" type="text">
+            <select id="customer" formControlName="customer" name="customer" class="form-control">
+            <option *ngFor="let customer of customerList"
+                    [ngValue]="customer.name">{{customer.name}}</option>
+            </select>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Start Date</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="date">
           </div>
 
           <div class="mb-3">
             <label class="form-label"> 	End Date</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="date">
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Deposit</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="number">
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Total</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="number">
           </div>
           <div style="margin-bottom: 10px">
-            <a type="submit" class="btn btn-outline-primary">Create</a>
-            <a [routerLink]="['/contract/list']" style="margin-left: 10px"  type="submit"
-               class="btn btn-outline-danger">Close</a>
+            <button type="submit" class="btn btn-outline-primary">Create</button>
+            <a [routerLink]="['/contract/list']" style="margin-left: 10px"  type="submit" class="btn btn-outline-danger">Close</a>
           </div>
         </form>
       </div>

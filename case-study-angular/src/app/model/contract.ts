@@ -1,5 +1,5 @@
 export interface Contract {
-  no?: number;
+  id?: number;
   facility?: string;
   customer?: string;
   startDate?: string;
