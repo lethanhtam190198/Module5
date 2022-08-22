@@ -11,9 +11,9 @@ import {Category} from '../../model/category';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
+  categores: Category[] = [];
   productForm: FormGroup;
   id: number;
-  categoryList: Category[] = [];
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
@@ -22,7 +22,9 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllCategory();
+    this.categoryService.getAll().subscribe(next => {
+      this.categores = next;
+    });
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       this.getProduct(this.id);
@@ -30,10 +32,10 @@ export class ProductEditComponent implements OnInit {
   }
 
   getProduct(id: number) {
-    return this.productService.findById(id).subscribe(product => {
+    this.productService.findById(id).subscribe(product => {
       this.productForm = new FormGroup({
         id: new FormControl(product.id),
-        name: new FormControl(product.name),
+        name: new FormControl(product.name.id),
         price: new FormControl(product.price),
         description: new FormControl(product.description),
       });
@@ -42,15 +44,13 @@ export class ProductEditComponent implements OnInit {
 
   updateProduct(id: number) {
     const product = this.productForm.value;
-    this.productService.updateProduct(id, product).subscribe(() => {
-      this.productForm.reset();
-      this.router.navigate(['']);
-    });
-  }
-
-  getAllCategory() {
-    this.categoryService.getAll().subscribe(value => {
-      this.categoryList = value;
+    this.categoryService.findById(parseInt(this.productForm.value.name)).subscribe(next => {
+      product.name = next;
+      this.productService.updateProduct(id, product).subscribe(() => {
+        this.productForm.reset();
+        alert(' Create success');
+        this.router.navigateByUrl('/product/list');
+      });
     });
   }
 }

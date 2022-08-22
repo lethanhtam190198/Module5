@@ -11,21 +11,25 @@ import {CategoryService} from '../../service/category.service';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
+
+  categores: Category[] = [];
+
   productForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
   });
-  categoryList: Category[] = [];
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
               private router: Router) {
   }
 
-  ngOnInit(): void {
-    this.getAllCategory();
+  ngOnInit() {
+    this.categoryService.getAll().subscribe(next => {
+      this.categores = next;
+    });
   }
 
   submit() {
@@ -35,10 +39,4 @@ export class ProductCreateComponent implements OnInit {
       this.router.navigateByUrl('/');
     });
   }
-  getAllCategory() {
-    this.categoryService.getAll().subscribe(value => {
-      this.categoryList = value;
-    });
-  }
-
 }

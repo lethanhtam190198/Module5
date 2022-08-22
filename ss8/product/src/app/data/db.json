@@ -3,33 +3,55 @@
     {
       "id": 1,
       "name": {
-        "id": 1,
-        "name": "Iphone"
+        "id": 2,
+        "name": "Samsung"
       },
-      "price": 12121,
-      "description": "12312"
+      "price": 123,
+      "description": "123"
     },
     {
-      "id": 1,
+      "id": 2,
+      "name": {
+        "id": 4,
+        "name": "Xiaomi"
+      },
+      "price": 123,
+      "description": "123"
+    },
+    {
+      "id": 3,
       "name": {
         "id": 1,
         "name": "Iphone"
       },
-      "price": 2400000,
-      "description": "New"
+      "price": 123,
+      "description": "123"
+    },
+    {
+      "id": 4,
+      "name": {
+        "id": 2,
+        "name": "Samsung"
+      },
+      "price": null,
+      "description": null
     }
   ],
-  "category": [
+  "categories": [
     {
       "id": 1,
       "name": "Iphone"
     },
     {
       "id": 2,
-      "name": "SamSung"
+      "name": "Samsung"
     },
     {
       "id": 3,
+      "name": "LG"
+    },
+    {
+      "id": 4,
       "name": "Xiaomi"
     }
   ]
