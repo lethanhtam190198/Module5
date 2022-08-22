@@ -39,7 +39,7 @@ export class ProductService {
     return this.products;
   }
 
-  saveProduct(product): any {
+  saveProduct(product): void {
     this.products.push(product);
   }
 
