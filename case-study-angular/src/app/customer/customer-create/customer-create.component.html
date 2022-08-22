@@ -20,6 +20,7 @@
               <option *ngFor="let customerType of customerTypeList"
                       [ngValue]="customerType">{{customerType.name}}</option>
             </select>
+            <p *ngIf="customerList.controls.type.hasError('required') && customerList.controls.type.touched"> Not Required</p>
           </div>
           <div class="mb-3">
             <label class="form-label">Name</label>
@@ -32,8 +33,7 @@
           <div class="mb-3">
             <label class="form-label">Birth Day</label>
             <input class="form-control" type="date" formControlName="birthDay">
-            <p *ngIf="customerList.controls.birthDay.hasError('required') &&customerList.controls.birthDay.touched"> Not
-              Required</p>
+            <p *ngIf="customerList.controls.birthDay.hasError('required') &&customerList.controls.birthDay.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
@@ -43,16 +43,14 @@
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
-            <p *ngIf="customerList.controls.gender.hasError('required') && customerList.controls.gender.touched"> Not
-              Required</p>
+            <p *ngIf="customerList.controls.gender.hasError('required') && customerList.controls.gender.touched"> Not Required</p>
           </div>
 
 
           <div class="mb-3">
             <label class="form-label"> Id Card</label>
             <input class="form-control" type="text" formControlName="idCard">
-            <p *ngIf="customerList.controls.gender.hasError('required') && customerList.controls.gender.touched"> Not
-              Required</p>
+            <p *ngIf="customerList.controls.gender.hasError('required') && customerList.controls.gender.touched"> Not Required</p>
             <p *ngIf="customerList.controls.idCard.hasError('pattern')">Wrong format</p>
 
           </div>
