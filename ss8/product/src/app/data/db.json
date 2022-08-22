@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": {
+        "id": 1,
+        "name": "Iphone"
+      },
+      "price": 12121,
+      "description": "12312"
+    },
+    {
+      "id": 1,
+      "name": {
+        "id": 1,
+        "name": "Iphone"
+      },
+      "price": 2400000,
+      "description": "New"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Iphone"
+    },
+    {
+      "id": 2,
+      "name": "SamSung"
+    },
+    {
+      "id": 3,
+      "name": "Xiaomi"
+    }
+  ]
+}
