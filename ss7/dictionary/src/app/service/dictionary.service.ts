@@ -21,10 +21,11 @@ export class DictionaryService {
   constructor() {
   }
 
-  getAll() {
+  getAll(): Dictionary[] {
     return this.distionaryList;
   }
-  findByMean(vietnamese: string) {
+
+  findByMean(vietnamese: string): any {
     return this.distionaryList.find(dictionary => dictionary.vietnamese === vietnamese);
   }
 }
