@@ -43,11 +43,11 @@ export class ProductService {
     this.products.push(product);
   }
 
-  findById(id: number) {
+  findById(id: number): Product {
     return this.products.find(product => product.id === id);
   }
 
-  updateProduct(id: number, product: Product): any {
+  updateProduct(id: number, product: Product): void {
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].id === id) {
         this.products[i] = product;
