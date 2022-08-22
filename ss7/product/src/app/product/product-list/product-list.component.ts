@@ -9,6 +9,8 @@ import {ProductService} from '../../service/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  id: number;
+  name: string;
 
   constructor(private productService: ProductService) {
   }
@@ -16,8 +18,18 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.getAll();
   }
+
   getAll() {
     this.products = this.productService.getAll();
   }
 
+  openDetele(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  delete(id: any) {
+    this.productService.deleteProduct(id);
+    this.products = this.productService.getAll();
+  }
 }
