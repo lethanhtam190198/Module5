@@ -31,4 +31,7 @@ export class ProductService {
   deleteProduct(id: number): Observable<Product> {
     return this.http.delete<Product>(this.URL_PRODUCT + '/' + id);
   }
+  searchProductNameAndDescription(description: string, price: number): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URL_PRODUCT + '/?name.name_like=' + description + '&price_like=' + price);
+  }
 }

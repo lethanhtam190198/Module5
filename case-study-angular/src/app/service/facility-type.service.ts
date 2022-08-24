@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {FacilityType} from '../model/facility-type';
+import {FacilityType} from '../model/facility/facility-type';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,8 @@ export class FacilityTypeService {
 
   getAll() {
     return this.facilityTypeList;
+  }
+  findById(id: number) {
+    return this.facilityTypeList.find(type => type.id === id);
   }
 }

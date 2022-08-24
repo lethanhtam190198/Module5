@@ -11,7 +11,7 @@
           <div class="mb-3">
             <label class="form-label" > Id</label>
             <input class="form-control" type="number" formControlName="id">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
@@ -19,78 +19,78 @@
             <select class="form-select" name="" id="facilityType" formControlName="type">
               <option value="" disabled selected="selected">Please choose</option>
               <option *ngFor="let facilityType of facilityTypeList"
-                      [ngValue]="facilityType">{{facilityType.name}}</option>
+                      [ngValue]="facilityType.id">{{facilityType.name}}</option>
             </select>
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red" *ngIf="facilityEdit.controls.name.hasError('required') && facilityEdit.controls.name.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label" > Facility Name</label>
             <input class="form-control" type="text" formControlName="name">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
-            <p *ngIf="facilityEdit.controls.id.hasError('pattern')"> Wrong Format</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.name.hasError('required') && facilityEdit.controls.name.touched"> Not Empty</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.name.hasError('pattern')"> Wrong Format</p>
           </div>
 
 
           <div class="mb-3">
             <label class="form-label"> Area</label>
             <input class="form-control" type="number" formControlName="area">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.area.hasError('required') && facilityEdit.controls.area.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Rental Cost</label>
             <input class="form-control" type="number" formControlName="rentalCosts">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.rentalCosts.hasError('required') && facilityEdit.controls.rentalCosts.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Max People</label>
             <input class="form-control" type="number" formControlName="maxPeople">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.maxPeople.hasError('required') && facilityEdit.controls.maxPeople.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Rental Type</label>
             <select class="form-select" name="" id="rentalType" formControlName="rentalType">
               <option *ngFor="let rentalType of rentalType"
-                      [ngValue]="rentalType">{{rentalType.name}}</option>
+                      [value]="rentalType.id">{{rentalType.name}}</option>
             </select>
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.rentalType.hasError('required') && facilityEdit.controls.rentalType.touched"> Not Empty</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Standard Room</label>
             <input class="form-control" type="text" id="roomStandard" formControlName="roomStandard">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+<!--            <p style="color:red"  *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Empty</p>-->
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Pool Area</label>
             <input class="form-control" type="number" id="poolArea" formControlName="poolArea">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+<!--            <p style="color:red"  *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Empty</p>-->
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Number Of Floor</label>
             <input class="form-control" type="number" id="numberOfFloors" formControlName="numberOfFloors">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+<!--            <p style="color:red"  *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Empty</p>-->
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Other Amenities</label>
             <input class="form-control" type="text" id="otherAmenities" formControlName="otherAmenities">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+<!--            <p style="color:red"  *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Empty</p>-->
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Url</label>
             <input class="form-control" type="text" id="url" formControlName="url">
-            <p *ngIf="facilityEdit.controls.id.hasError('required') && facilityEdit.controls.id.touched"> Not Required</p>
+            <p style="color:red"  *ngIf="facilityEdit.controls.url.hasError('required') && facilityEdit.controls.url.touched"> Not Empty</p>
           </div>
 
           <div style="margin-bottom: 15px">
-            <input type="submit" class="btn btn-outline-primary" value="Edit">
+            <input type="submit" class="btn btn-outline-primary" value="Edit" [disabled]="!facilityEdit.valid">
             <a style="margin-left: 10px" [routerLink]="['/facility/list']" type="button"
                class="btn btn-outline-danger">Close</a>
           </div>

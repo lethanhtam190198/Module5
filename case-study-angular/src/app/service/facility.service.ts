@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Facility} from '../model/facility';
+import {Facility} from '../model/facility/facility';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class FacilityService {
     numberOfFloors: 3,
     otherAmenities: 'Aaaaa',
     facilityType: {
-      id: 1,
+      id: 3,
       name: 'Villa'
     }
   }];

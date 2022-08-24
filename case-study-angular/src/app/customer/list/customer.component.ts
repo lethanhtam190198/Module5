@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from '../../model/customer';
+import {Customer} from '../../model/customer/customer';
 import {CustomerService} from '../../service/customer.service';
+import {CustomerTypeService} from '../../service/customer-type.service';
+import {CustomerType} from '../../model/customer/customer-type';
 
 @Component({
   selector: 'app-customer',
@@ -11,8 +13,12 @@ export class CustomerComponent implements OnInit {
   customerList: Customer[] = [];
   id: number;
   name: string;
+  p = 1;
+  customerTypeList: CustomerType[] = [];
 
-  constructor(private customerService: CustomerService) {
+
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService) {
 
   }
 
@@ -21,7 +27,12 @@ export class CustomerComponent implements OnInit {
   }
 
   getAll() {
-    this.customerList = this.customerService.getAll();
+    this.customerService.getAll().subscribe(next => {
+      this.customerList = next;
+    });
+    this.customerTypeService.getAll().subscribe(next => {
+      this.customerTypeList = next;
+    });
   }
 
   openDetele(id: number, name: string) {
@@ -29,8 +40,9 @@ export class CustomerComponent implements OnInit {
     this.name = name;
   }
 
-  delete(id: number) {
-    this.customerService.deleteCustomer(id);
-    this.customerList = this.customerService.getAll();
+  delete(id: number): void {
+    this.customerService.deleteCustomer(id).subscribe(() => {
+      this.getAll();
+    });
   }
 }

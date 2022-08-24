@@ -3,9 +3,10 @@ import {Form, FormControl, FormGroup, Validators} from '@angular/forms';
 import {FacilityService} from '../../service/facility.service';
 import {Router} from '@angular/router';
 import {RentalTypeService} from '../../service/rental-type.service';
-import {RentalType} from '../../model/rental-type';
-import {FacilityType} from '../../model/facility-type';
+import {RentalType} from '../../model/facility/rental-type';
+import {FacilityType} from '../../model/facility/facility-type';
 import {FacilityTypeService} from '../../service/facility-type.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-facility-create',
@@ -15,16 +16,16 @@ import {FacilityTypeService} from '../../service/facility-type.service';
 export class FacilityCreateComponent implements OnInit {
   facilityList: FormGroup = new FormGroup({
     id: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.pattern(/^([A-Z][^A-Z0-9\s]+)(\s[A-Z][^A-Z0-9\s]+)*$/)]),
     area: new FormControl('', [Validators.required]),
     rentalCosts: new FormControl('', Validators.required),
     maxPeople: new FormControl('', [Validators.required]),
     rentalType: new FormControl('', [Validators.required]),
     url: new FormControl('', [Validators.required]),
-    roomStandard: new FormControl('', [Validators.required]),
-    poolArea: new FormControl('', [Validators.required]),
-    numberOfFloors: new FormControl('', [Validators.required]),
-    otherAmenities: new FormControl('', [Validators.required]),
+    roomStandard: new FormControl( ''),
+    poolArea: new FormControl('' ),
+    numberOfFloors: new FormControl('' ),
+    otherAmenities: new FormControl('' ),
     facilityType: new FormControl('', [Validators.required])
   });
   rentalTypeList: RentalType[] = [];
@@ -34,7 +35,8 @@ export class FacilityCreateComponent implements OnInit {
   constructor(private facilityService: FacilityService,
               private router: Router,
               private rentalTypeService: RentalTypeService,
-              private facilityTypeService: FacilityTypeService) {
+              private facilityTypeService: FacilityTypeService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -47,9 +49,12 @@ export class FacilityCreateComponent implements OnInit {
     this.facilityService.saveFacility(facility);
     this.facilityList.reset();
     this.router.navigate(['facility/list']);
+    this.toastr.success('Create success', 'Create Congratulation', {
+      timeOut: 7000, progressBar: false
+    });
   }
 
-  chooseFacility(value: string) {
-    this.temp = value;
+  chooseFacility(target: any) {
+    this.temp = target.value;
   }
 }

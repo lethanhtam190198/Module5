@@ -3,7 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 import {Router} from '@angular/router';
 import {CustomerTypeService} from '../../service/customer-type.service';
-import {CustomerType} from '../../model/customer-type';
+import {CustomerType} from '../../model/customer/customer-type';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-create',
@@ -12,7 +13,7 @@ import {CustomerType} from '../../model/customer-type';
 })
 export class CustomerCreateComponent implements OnInit {
   customerList: FormGroup = new FormGroup({
-    id: new FormControl('', Validators.required),
+    // id: new FormControl('', Validators.required),
     type: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.pattern(/^([A-Z][^A-Z0-9\s]+)(\s[A-Z][^A-Z0-9\s]+)*$/)]),
     birthDay: new FormControl('', [Validators.required]),
@@ -27,19 +28,25 @@ export class CustomerCreateComponent implements OnInit {
 
   constructor(private customerService: CustomerService,
               private router: Router,
-              private customerTypeService: CustomerTypeService) {
+              private customerTypeService: CustomerTypeService,
+              private toastr: ToastrService) {
   }
 
-  ngOnInit(): void {
-    this.customerTypeList = this.customerTypeService.getAll();
+  ngOnInit() {
+    this.customerTypeService.getAll().subscribe(next => {
+      this.customerTypeList = next;
+    });
   }
 
   submit() {
     const customer = this.customerList.value;
-    this.customerService.saveCustomer(customer);
-    this.customerList.reset();
-    this.router.navigate(['customer/list']);
+    this.customerService.saveCustomer(customer).subscribe(next => {
+      this.customerList.reset();
+      this.router.navigate(['customer/list']);
+      this.toastr.success('Create success', 'Create Congratulation', {
+        timeOut: 2000, progressBar: false
+      });
+    });
   }
-
 }
 

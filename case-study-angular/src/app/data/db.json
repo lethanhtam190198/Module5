@@ -1,0 +1,104 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "type": {
+        "id": 4,
+        "name": "Diamond"
+      },
+      "name": "Tam",
+      "birthDay": "12-12-2111",
+      "gender": "Other",
+      "idCard": "12121212",
+      "phoneNumber": "+841111111",
+      "email": "tam@gmail.com",
+      "address": "quang"
+    },
+    {
+      "type": {
+        "id": 4,
+        "name": "Diamond"
+      },
+      "name": "Vip Pro",
+      "birthDay": "2022-08-19",
+      "gender": "Other",
+      "idCard": "1321312",
+      "phoneNumber": "+841312311",
+      "email": "dad@asda",
+      "address": "asda",
+      "id": 2
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Diamond"
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "PHÒNG DELUXE HƯỚNG VƯỜN",
+      "area": 50,
+      "rentalCosts": 10000000,
+      "maxPeople": 5,
+      "rentalType": {
+        "id": 1,
+        "name": "Day"
+      },
+      "url": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Garden-Deluxe-twin-bed-F-370x239.jpg",
+      "roomStandard": "Abc",
+      "poolArea": 100,
+      "numberOfFloors": 3,
+      "otherAmenities": "Aaaaa",
+      "facilityType": {
+        "id": 3,
+        "name": "Villa"
+      }
+    }
+  ],
+  "rentalType": [
+    {
+      "id": 1,
+      "name": "Day"
+    },
+    {
+      "id": 2,
+      "name": "Week"
+    },
+    {
+      "id": 3,
+      "name": "Month"
+    },
+    {
+      "id": 4,
+      "name": "Year"
+    }
+  ],
+  "facilityType": [
+    {
+      "id": 1,
+      "name": "Room"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Villa"
+    }
+  ]
+}

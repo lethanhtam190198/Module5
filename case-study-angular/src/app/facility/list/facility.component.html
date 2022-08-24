@@ -22,7 +22,6 @@
 </div>
 
 <div class="vc_empty_space" style="height: 32px"><span class="vc_empty_space_inner"></span></div>
-<div class="vc_empty_space" style="height: 32px"><span class="vc_empty_space_inner"></span></div>
 
 <div>
   <div style="text-align: center">
@@ -52,10 +51,10 @@
         <div class="card-body">
           <h6 class="card-title">{{item.name}}</h6>
           <p class="card-text">
-            Diện tích: {{item.area}} m²
+            Diện tích: {{item.area}}m²
           </p>
           <p class="card-text">
-            Giá:{{item.rentalCosts | currency:'VND':true}}
+            Giá: {{item.rentalCosts | currency:'VND':true}}
           </p>
         </div>
         <div style="margin-bottom: 15px">
@@ -127,11 +126,11 @@
             Name : {{name}}<br>
             Facility: {{facilityType}}<br>
             Area:{{area}}<br>
-            Area:{{rentalCosts}}<br>
-            Area:{{maxPeople}}<br>
-            Area:{{rentalType}}<br>
-            Area:{{poolArea}}<br>
-            Area:{{otherAmenities}}
+            Retal Costs:{{rentalCosts}}<br>
+            Max People:{{maxPeople}}<br>
+            Rental Type:{{rentalType}}<br>
+            Pool Area:{{poolArea}}<br>
+            Other Amenities:{{otherAmenities}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

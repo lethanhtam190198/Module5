@@ -8,54 +8,66 @@
       <div class="body_center_2 container">
         <form [formGroup]="contractList" (ngSubmit)="submit()">
           <div class="mb-3">
-            <label class="form-label"> No</label>
+            <label class="form-label"> Id</label>
             <input class="form-control" type="number">
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Facility</label>
             <select id="facility" formControlName="facility" name="type"  class="form-control">
-              <option value="" disabled selected="selected">Please choose </option>
+              <option value="" disabled >Please choose</option>
               <option *ngFor="let facility of facilityList"
                       [ngValue]="facility.name">{{facility.name}}</option>
             </select>
+            <p style="color:red"  *ngIf="contractList.controls.facility.hasError('required') && contractList.controls.facility.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Customer</label>
             <select id="customer" formControlName="customer" name="customer" class="form-control">
+              <option value="" disabled >Please choose</option>
             <option *ngFor="let customer of customerList"
                     [ngValue]="customer.name">{{customer.name}}</option>
             </select>
+            <p style="color:red"  *ngIf="contractList.controls.customer.hasError('required') && contractList.controls.customer.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Start Date</label>
             <input class="form-control" type="date" formControlName="startDate">
+            <p style="color:red"  *ngIf="contractList.controls.startDate.hasError('required') && contractList.controls.startDate.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> 	End Date</label>
             <input class="form-control" type="date" formControlName="endDate">
+            <p style="color:red" *ngIf="contractList.controls.endDate.hasError('required') && contractList.controls.endDate.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Deposit</label>
             <input class="form-control" type="number" formControlName="deposit">
+            <p style="color:red"  *ngIf="contractList.controls.deposit.hasError('required') && contractList.controls.deposit.touched"> Not Required</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Total</label>
             <input class="form-control" type="number" formControlName="total">
+            <p style="color:red"  *ngIf="contractList.controls.total.hasError('required') && contractList.controls.total.touched"> Not Required</p>
           </div>
           <div style="margin-bottom: 10px">
-            <button type="submit" class="btn btn-outline-primary">Create</button>
+            <button type="submit" class="btn btn-outline-primary" [disabled]="!contractList.valid">Create</button>
+
             <a [routerLink]="['/contract/list']" style="margin-left: 10px"  type="submit" class="btn btn-outline-danger">Close</a>
           </div>
         </form>
+
       </div>
     </div>
     <div class="col-3"></div>
   </div>
 </div>
+
+
+
 

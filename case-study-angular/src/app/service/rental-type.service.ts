@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {RentalType} from '../model/rental-type';
+import {RentalType} from '../model/facility/rental-type';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,8 @@ export class RentalTypeService {
 
   getAll() {
     return this.rentalTypeList;
+  }
+  findById(id: number) {
+    return this.rentalTypeList.find(rentalType => rentalType.id === id);
   }
 }

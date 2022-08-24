@@ -16,28 +16,41 @@ import {CustomerEditComponent} from './customer/customer-edit/customer-edit.comp
 import {ContractListComponent} from './contract/contract-list/contract-list.component';
 import {ContractCreateComponent} from './contract/contract-create/contract-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    CustomerComponent,
-    FacilityComponent,
-    ContractListComponent,
-    FacilityEditComponent,
-    HomeComponent,
-    FacilityCreateComponent,
-    FacilityEditComponent,
-    CustomerCreateComponent,
-    CustomerEditComponent,
-    ContractListComponent,
-    ContractCreateComponent
+    FooterComponent
+    // CustomerComponent,
+    // FacilityComponent,
+    // ContractListComponent,
+    // FacilityEditComponent,
+    // HomeComponent,
+    // FacilityCreateComponent,
+    // FacilityEditComponent,
+    // CustomerCreateComponent,
+    // CustomerEditComponent,
+    // ContractListComponent,
+    // ContractCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

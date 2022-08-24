@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Facility} from '../../model/facility';
+import {Facility} from '../../model/facility/facility';
 import {FacilityService} from '../../service/facility.service';
-import {FacilityType} from '../../model/facility-type';
-import {RentalType} from '../../model/rental-type';
+import {FacilityType} from '../../model/facility/facility-type';
+import {RentalType} from '../../model/facility/rental-type';
 
 @Component({
   selector: 'app-facility',
