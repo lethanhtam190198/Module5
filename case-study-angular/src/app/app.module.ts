@@ -26,17 +26,6 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent
-    // CustomerComponent,
-    // FacilityComponent,
-    // ContractListComponent,
-    // FacilityEditComponent,
-    // HomeComponent,
-    // FacilityCreateComponent,
-    // FacilityEditComponent,
-    // CustomerCreateComponent,
-    // CustomerEditComponent,
-    // ContractListComponent,
-    // ContractCreateComponent
   ],
   imports: [
     BrowserModule,

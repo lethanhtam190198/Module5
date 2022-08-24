@@ -53,8 +53,8 @@ export class CustomerEditComponent implements OnInit {
       });
       this.customerEdit.reset();
       this.router.navigate(['customer/list']);
-      this.toastr.success('Create success', 'Edit Congratulation', {
-        timeOut: 2000, progressBar: false
+      this.toastr.success('Edit Congratulation', '', {
+        timeOut: 3000, progressBar: false
       });
     });
   }
